@@ -1,0 +1,730 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap');
+
+:root {
+  --primary-color: #00856f;
+  --secondary-color: #212529;
+  --paragraph-color: #495057;
+
+  --hover-green: #00453a;
+
+  --brand-beige: #fffaf1;
+  --brand-light: #dce9e2;
+
+  --bg-section: #f7f9f9;
+
+  --nav-height: 7.2rem;
+
+  font-size: 62.5%;
+}
+
+/*######## Geral ############ */
+* {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+}
+
+body {
+  font-family: 'DM Sans';
+  font-size: 1.6rem;
+  text-align: center;
+  overflow: overlay;
+  background-color: var(--bg-section);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+ul {
+  list-style: none;
+}
+
+.base {
+  width: min(50rem, 100%);
+  margin-left: auto;
+  margin-right: auto;
+  padding-inline: 2.4rem;
+}
+
+section {
+  padding-block: 10rem;
+}
+
+/*######### Header #############*/
+
+#home {
+  padding-top: calc(4.1rem + var(--nav-height));
+}
+
+#home img {
+  width: 26.4rem;
+  display: block;
+  margin-inline: auto;
+  object-position: 0 2rem;
+}
+
+#home::before {
+  content: '';
+  width: 100%;
+  height: calc(70% + var(--nav-height));
+  background-color: var(--brand-light);
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+#home h4 {
+  font-size: 1.4rem;
+  color: var(--primary-color);
+  margin-top: 4.1rem;
+  margin-bottom: 1.6rem;
+}
+
+#home h1 {
+  font-size: 3.4rem;
+  color: var(--secondary-color);
+  line-height: 130%;
+  margin-bottom: 2.4rem;
+}
+
+#home p {
+  font-size: 1.8rem;
+  line-height: 150%;
+  color: var(--paragraph-color);
+  margin-bottom: 3.2rem;
+}
+
+.botao {
+  background-color: var(--primary-color);
+  margin-bottom: 6rem;
+  border-radius: 4rem;
+
+  padding: 1.6rem 3.2rem;
+  width: fit-content;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.6rem;
+
+  margin-left: auto;
+  margin-right: auto;
+  color: white;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1.4rem;
+  text-decoration: none;
+
+  transition: background 0.2s;
+}
+
+.botao:hover {
+  background-color: var(--hover-green);
+}
+
+#home .stats {
+  width: 100%;
+  padding-block: 4rem;
+  margin-inline: auto;
+  background-color: var(--brand-beige);
+
+  border: 1px solid var(--brand-light);
+  border-radius: 0.6rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6rem;
+}
+
+#home .stat h3 {
+  font-size: 4.8rem;
+  line-height: 130%;
+  color: var(--secondary-color);
+  margin-bottom: 0.4rem;
+}
+
+#home .stat p {
+  margin: 0;
+  line-height: 150%;
+  color: var(--primary-color);
+  font-size: 1.6rem;
+}
+
+/*########### Navigation ############# */
+
+nav {
+  display: flex;
+  height: var(--nav-height);
+
+  position: fixed;
+  top: 0;
+  width: 100vw;
+
+  z-index: 100;
+}
+
+nav .base {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+nav.scroll {
+  background-color: var(--primary-color);
+}
+
+nav.scroll .logo path {
+  fill: white;
+}
+
+nav.scroll button path {
+  stroke: white;
+}
+
+nav .menu, nav .close-menu{
+  position: fixed;
+}
+
+/*######### Menu ############# */
+
+body.menu-expanded {
+  overflow: hidden;
+}
+
+body.menu-expanded > :not(nav) {
+  visibility: hidden;
+}
+
+.menu,
+.close-menu,
+body.menu-expanded .open-menu {
+  opacity: 0;
+  visibility: hidden;
+}
+
+body.menu-expanded .menu,
+body.menu-expanded .close-menu {
+  opacity: 1;
+  visibility: visible;
+}
+
+.menu {
+  transform: translateX(100%);
+}
+
+body.menu-expanded .menu {
+  top: 0;
+  left: 0;
+  background-color: var(--primary-color);
+
+  width: 100vw;
+  height: 100vh;
+  padding-top: var(--nav-height);
+
+  transition: transform 400ms;
+  transform: translateX(0);
+}
+
+.menu ul:nth-child(1) {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4.8rem;
+
+  margin-top: 6rem;
+
+  font-weight: 700;
+  font-size: 2.4rem;
+  line-height: 3.1rem;
+  text-align: center;
+}
+
+.menu ul a {
+  color: var(--brand-light);
+  text-decoration: none;
+}
+
+.menu .consulta {
+  background: white;
+  border-radius: 4rem;
+  color: var(--primary-color);
+  font-weight: 700;
+  font-size: 1.8rem;
+  line-height: 2.3rem;
+  text-transform: uppercase;
+  border-style: none;
+  display: inline-block;
+  padding: 1.6rem 3.2rem;
+  text-decoration: none;
+
+  margin-top: 4.8rem;
+  margin-bottom: 8rem;
+}
+
+.menu .consulta:hover{
+  background-color: var(--primary-color);
+  color: white;
+  filter: brightness(1.2);
+}
+
+.sociallinks {
+  display: flex;
+  gap: 3.2rem;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+}
+
+body.menu-expanded .logo,
+body.menu-expanded nav button {
+  position: relative;
+  z-index: 10;
+}
+
+body.menu-expanded .logo path {
+  fill: white;
+}
+
+body.menu-expanded button path {
+  stroke: white;
+}
+
+nav button {
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+/*############## Services ###############*/
+
+#servicos header h4 {
+  font-size: 1.4rem;
+  line-height: 150%;
+  letter-spacing: 0.08rem;
+  color: var(--primary-color);
+  text-transform: uppercase;
+  margin-bottom: 1.6rem;
+}
+
+#servicos header h2 {
+  font-size: 3rem;
+  line-height: 3.9rem;
+  text-align: center;
+  color: var(--secondary-color);
+  margin-bottom: 6rem;
+}
+
+#servicos .cards {
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+}
+
+#servicos .card {
+  padding: 2.4rem;
+  border: 1px solid var(--brand-beige);
+  border-radius: 0.6rem;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  gap: 1.6rem;
+}
+
+#servicos .card h3 {
+  font-size: 2.4rem;
+  line-height: 3.1rem;
+  color: var(--secondary-color);
+}
+
+#servicos .card p {
+  font-size: 1.6rem;
+  line-height: 150%;
+  color: var(--paragraph-color);
+}
+
+/*############## About ###############*/
+
+#about h4 {
+  font-size: 1.4rem;
+  line-height: 150%;
+  letter-spacing: 0.08rem;
+  color: var(--primary-color);
+  text-transform: uppercase;
+  text-align: left;
+  margin-bottom: 1.6rem;
+}
+
+#about h2 {
+  font-size: 3rem;
+  line-height: 3.9rem;
+  color: var(--secondary-color);
+  margin-bottom: 2.4rem;
+  text-align: left;
+}
+
+#about p {
+  font-size: 1.6rem;
+  line-height: 150%;
+  color: var(--paragraph-color);
+  text-align: left;
+  margin-bottom: 6rem;
+}
+
+/*############## Contato ###############*/
+
+#contact {
+  text-align: left;
+
+}
+
+#contact h2 {
+  color: var(--secondary-color);
+  font-size: 3.0rem;
+  line-height: 3.9rem;
+  margin-bottom: 3.2rem;
+}
+
+#contact ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  margin-bottom: 3.2rem;
+}
+
+#contact ul li {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+/*############## Footer ###############*/
+
+footer {
+  background-color: var(--primary-color);
+  padding-block: 6rem;
+
+  text-align: left;
+  color: white;
+}
+
+footer .logo {
+  display: inline-block;
+  margin-bottom: 2.4rem;
+}
+
+footer .logo svg {
+  width: 23.6rem;
+  height: 3.1rem;
+}
+
+footer .logo path {
+  fill: white;
+}
+
+footer p {
+  line-height: 2;
+  margin-bottom: 3.2rem;
+}
+
+footer .sociallinks {
+  justify-content: flex-start;
+}
+
+#backTop {
+  position: fixed;
+  bottom: 1rem;
+  right: 2.5rem;
+
+  opacity:0;
+  visibility: hidden;
+  transform: translateY(100%);
+  transition: 0.3s;
+}
+
+#backTop.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/*############## Responsivo ###############*/
+
+@media (min-width: 1024px) {
+
+    body{
+      overflow: auto;
+    }
+
+    .base{
+      width: min(112rem, 100%);
+      display: grid;
+    }
+
+    section {
+      padding-block: 16rem;
+    }
+
+    /*############## Navigation ###############*/
+    nav#navbar .base * {
+      margin: 0;
+      padding: 0;
+      visibility: initial;
+      opacity: initial;
+      flex-direction: initial;
+      position: initial;
+      display: initial;
+      font-size: initial;
+      transform: initial;
+      color: initial;
+      background-color: initial;
+      font-weight: initial;
+    }
+
+    nav#navbar .close-menu, nav#navbar .open-menu, nav#navbar .sociallinks {
+      display: none;
+    }
+
+    nav#navbar .menu {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 60%;
+    }
+
+    nav#navbar .menu ul:nth-child(1) {
+        display: flex;
+        gap: 3.2rem;
+    }
+
+    nav#navbar .menu li a {
+      color: var(--primary-color);
+      opacity: 0.7;
+    }
+
+    nav#navbar .menu a.consulta {
+      display: flex;
+      justify-content:center;
+      align-items: center;
+      padding: 1rem 2.4rem;
+      border: 1px solid var(--primary-color);
+      border-radius: 4rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--primary-color);
+      font-size: 1.4rem;
+      line-height: 1.8rem;
+    }
+
+    nav#navbar.scroll li a {
+      color: var(--brand-light);
+      opacity: 0.6;
+    }
+
+    nav#navbar.scroll .menu a.consulta {
+      border-color: var(--brand-light);
+      color: var(--brand-light);
+    }
+
+    nav#navbar .menu li a.active,
+    nav#navbar .menu li a:hover {
+      opacity: 1;
+      font-weight: 700;
+    }
+
+    nav#navbar .menu li a::after{
+      content: '';
+      width: 0%;
+      height: 0.2rem;
+      background-color: var(--primary-color);
+      display: block;
+      position: relative;
+      bottom: -2rem;
+      left: -0.8rem;
+      transition: width 0.3s;
+    }
+
+    nav#navbar.scroll .menu li a::after{
+        background-color: var(--brand-light);
+    }
+
+    nav#navbar .menu ul li a:hover::after{
+      padding-inline: 0.8rem;
+      width: 100%;
+    }
+
+    nav#navbar.scroll .menu a.consulta:hover{
+      background-color: var(--primary-color);
+      border: none;
+    }
+
+    /*############## Inicio ###############*/
+
+    #home::before {
+      height: calc(100% - var(--nav-height) )
+    }
+
+    #home {
+      padding-block: 0;
+      padding-top: var(--nav-height);
+    }
+
+    #home .base {
+      grid-template-columns: 60.5rem 1fr;
+      grid-template-areas: 'A B'
+      'C C';
+    }
+
+    #home .col-a {
+      grid-area: A;
+      text-align: left;
+      align-self: center;
+    }
+
+    #home .col-b {
+      grid-area: B;
+    }
+
+    #home .stats {
+      grid-area: C;
+      flex-direction: row;
+      padding: 6rem;
+      gap: 0;
+
+    }
+    
+    #home h1 {
+      font-size: 5.2rem;
+    }
+
+    #home p {
+      font-size: 1.8rem;
+    }
+
+    #home .stats .stat + .stat {
+      border-left: 1px solid var(--primary-color);
+    }
+
+    #home .stats .stat {
+      flex: 1;
+    }
+
+    #home .botao {
+      margin: 0;
+    }
+
+    #home img {
+      width: 42rem;
+    }
+
+    /*############## Serviços ###############*/
+
+    #servicos h2 {
+      font-size: 4rem;
+      margin-inline: auto;
+      width: 47rem;
+    }
+
+    #servicos .cards {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 4rem;
+    }
+
+    #servicos .cards .card {
+      width: 30%;
+      flex-grow: 1;
+    }
+
+    /*############## Sobre ###############*/
+
+    #about .base {
+      grid-template-columns: 48rem 1fr;
+      grid-template-areas: 'B A';
+      gap: 6.7rem;
+    }
+
+    #about .col-b {
+      grid-area: B;
+    }
+
+    #about .col-a {
+      grid-area: A;
+      align-self: center;
+    }
+
+    #about p {
+      margin-bottom: 0;
+
+    }
+
+    /*############## Contato ###############*/
+
+    #contact .base {
+      grid-template-columns: 1fr 57.5rem;
+      grid-template-areas: 'A B';
+    }
+
+    #contact .col-b {
+      grid-area: B;
+    }
+
+    #contact .col-a {
+      grid-area: A;
+      align-self: center;
+    }
+
+    #contact h2{
+      width: 30.4rem;
+    }
+
+    #contact .botao {
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    #contact ul li{
+      color: var(--paragraph-color);
+    }
+
+    /*############## Footer ###############*/
+
+    footer {
+      padding-block: 8rem;
+    }
+
+    footer .base {
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas: 'A B';
+    }
+
+    footer .col-a {
+      grid-area: A;
+      align-self: center;
+    }
+
+    footer .col-b {
+      grid-area: B;
+      align-self: center;
+      justify-self: flex-end;
+    }
+
+    footer p {
+      margin-bottom: 0;
+    }
+}
